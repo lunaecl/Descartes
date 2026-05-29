@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Descartes y Fermat · La disputa por una nueva forma de hacer matemáticas</title>
+<meta name="description" content="Una pieza de divulgación sobre cómo nació la geometría analítica en el siglo XVII: método, notación, autoría y circulación del conocimiento entre Descartes, Fermat y sus redes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Spline+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="author-mark" aria-label="Autor del HTML">Autor · <b>Emiliano Criollo Luna</b></div>
+<nav class="dots" id="dots" aria-label="Secciones">
+  <a href="#hero"><span>Inicio</span></a>
+  <a href="#contexto"><span>Contexto</span></a>
+  <a href="#problema"><span>El problema</span></a>
+  <a href="#metodo"><span>Método</span></a>
+  <a href="#fermat"><span>Fermat</span></a>
+  <a href="#circulacion"><span>Circulación</span></a>
+  <a href="#simplifica"><span>El relato</span></a>
+  <a href="#cierre"><span>Cierre</span></a>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="hero-portrait" aria-hidden="true" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg/500px-Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg')"></div>
+  <svg class="hero-grid-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="curveG" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#9A7B4F"/><stop offset="1" stop-color="#22384A"/>
+      </linearGradient>
+    </defs>
+    <g stroke="#22384A" stroke-width="1" opacity="0.10">
+      <line x1="0" y1="200" x2="1200" y2="200"/>
+      <line x1="0" y1="400" x2="1200" y2="400"/>
+      <line x1="0" y1="600" x2="1200" y2="600"/>
+      <line x1="300" y1="0" x2="300" y2="800"/>
+      <line x1="600" y1="0" x2="600" y2="800"/>
+      <line x1="900" y1="0" x2="900" y2="800"/>
+    </g>
+    <path id="heroCurve" d="M180 720 Q 600 -120 1040 720" fill="none" stroke="url(#curveG)" stroke-width="2.4" opacity="0.7"/>
+    <circle id="heroPt" r="6" fill="#9A7B4F" opacity="0"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Historia de las matemáticas · Siglo XVII</div>
+    <h1><span class="l" style="animation-delay:.35s">Descartes</span> <span class="l amp" style="animation-delay:.55s">&amp;</span> <span class="l" style="animation-delay:.7s">Fermat</span></h1>
+    <p class="sub">La disputa por una nueva forma de hacer matemáticas</p>
+    <p class="bajada">No siempre existió una manera clara de pasar de una figura a una ecuación. Esta es la historia de cómo esa frontera se cruzó —y de quiénes se disputaron el mérito de haberlo hecho.</p>
+  </div>
+  <div class="scrollcue"><span>Desplázate</span><span class="ln"></span></div>
+</header>
+
+<main>
+<section id="contexto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="rule"></span><span class="kicker-num">i</span><span class="eyebrow">Un mundo que cambiaba</span>
+    </div>
+    <div class="cols text-first">
+      <div>
+        <h2 class="reveal">No fue un genio solitario:<br>fue un momento compartido</h2>
+        <p class="reveal d1">En la Europa del siglo XVII, las matemáticas dejaban de ser un repertorio de técnicas heredadas de la Antigüedad para volverse el centro de una nueva cultura científica. Se discutía qué curvas eran admisibles, qué demostración contaba como rigurosa y qué métodos podían considerarse legítimos.</p>
+        <p class="reveal d2">René Descartes entró en esa conversación con una propuesta ambiciosa: usar el álgebra para reorganizar problemas geométricos y convertirlos en algo más general y sistemático. No era una mejora técnica. Era una nueva forma de pensar. Pero no la formuló desde cero, ni en silencio: la empujó dentro de una red de problemas heredados, lecturas antiguas y herramientas algebraicas que ya circulaban.</p>
+        <div class="doc-plate reveal d3">
+          <div class="img"><img alt="Portada de La Géométrie, 1637" loading="lazy"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/La-Geometrie_1637.png/640px-La-Geometrie_1637.png"
+            onerror="this.closest('.doc-plate').style.display='none'"></div>
+          <div class="cap"><b>El documento</b>La portada de <em>La Géométrie</em> (1637). Apareció como apéndice del <em>Discours de la méthode</em>, no como un tratado independiente: la nueva matemática llegó, literalmente, al final de un libro sobre el método.</div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="pull">No se trataba solo de resolver mejor. Se trataba de imponer una nueva manera de pensar las matemáticas.</div>
+        <div class="timeline" id="timeline">
+          <div class="tl-line"><span class="fill"></span></div>
+          <div class="tl-item"><span class="tl-dot"></span><div class="tl-year">1591</div><p>Viète publica su <em class="term">álgebra simbólica</em>: las cantidades empiezan a escribirse con letras.</p></div>
+          <div class="tl-item"><span class="tl-dot"></span><div class="tl-year">~1636</div><p>Fermat hace circular, en manuscrito, sus métodos para lugares geométricos.</p></div>
+          <div class="tl-item"><span class="tl-dot"></span><div class="tl-year">1637</div><p>Aparece <em class="term">La Géométrie</em>, apéndice del <em class="term">Discours de la méthode</em> de Descartes.</p></div>
+          <div class="tl-item"><span class="tl-dot"></span><div class="tl-year">1649</div><p>La edición latina con comentarios amplía y difunde la obra por toda Europa.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="chips reveal d3">
+      <span class="chip">método</span><span class="chip">álgebra</span><span class="chip">geometría</span><span class="chip">correspondencia</span><span class="chip">prestigio</span>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="problema">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="rule"></span><span class="kicker-num">ii</span><span class="eyebrow">El problema de fondo</span>
+    </div>
+    <div class="cols">
+      <div>
+        <h2 class="reveal">Cuando una figura<br>aprendió a escribirse</h2>
+        <p class="reveal d1">Lo que hoy llamamos geometría analítica no nació del gusto por dibujar ejes y poner letras. El problema era más profundo: cómo <em class="term">traducir</em> una situación geométrica en una relación algebraica y, a la vez, cómo leer una ecuación como si describiera una curva.</p>
+        <p class="reveal d2">En <em class="term">La Géométrie</em>, Descartes propuso tomar un problema geométrico, nombrar los segmentos —conocidos y desconocidos—, relacionarlos entre sí y reducir la dificultad a una ecuación. En vez de tratar cada figura como un caso aislado, buscó un método general para resolver familias enteras de problemas.</p>
+        <div class="pull reveal d3">El cambio decisivo no fue una figura nueva, sino una nueva manera de formular el problema.</div>
+      </div>
+      <div class="reveal d2">
+        <div class="fe-stage">
+          <div class="fe-toggle" role="group" aria-label="Cambiar vista">
+            <button id="btnFig" class="on">Figura</button>
+            <button id="btnEq">Ecuación</button>
+          </div>
+          <svg class="fe-svg" viewBox="0 0 460 320" id="feSvg" role="img" aria-label="Una curva con segmentos x e y que se traduce en una relación algebraica">
+            <g stroke="#D8CFBE" stroke-width="1">
+              <line x1="60" y1="270" x2="430" y2="270"/>
+              <line x1="60" y1="40" x2="60" y2="270"/>
+            </g>
+            <text x="420" y="288" font-size="12" fill="#857F73" font-family="Cormorant Garamond, serif" font-style="italic">eje</text>
+            <path id="feCurve" d="M60 270 Q 230 -30 410 110" fill="none" stroke="#22384A" stroke-width="2.4"/>
+            <g class="fe-layer" id="figLayer">
+              <line x1="250" y1="270" x2="250" y2="150" stroke="#9A7B4F" stroke-width="1.6" stroke-dasharray="4 4"/>
+              <line x1="60" y1="150" x2="250" y2="150" stroke="#9A7B4F" stroke-width="1.6" stroke-dasharray="4 4"/>
+              <circle cx="250" cy="150" r="5.5" fill="#22384A"/>
+              <text x="150" y="143" font-size="17" fill="#9A7B4F" font-family="Cormorant Garamond, serif" font-style="italic">x</text>
+              <text x="258" y="218" font-size="17" fill="#9A7B4F" font-family="Cormorant Garamond, serif" font-style="italic">y</text>
+              <text x="262" y="146" font-size="14" fill="#22384A" font-family="Cormorant Garamond, serif" font-style="italic">P</text>
+            </g>
+            <g class="fe-layer" id="eqLayer" style="opacity:0">
+              <text x="245" y="160" text-anchor="middle" font-size="34" fill="#22384A" font-family="Cormorant Garamond, serif" font-style="italic">y = a x<tspan font-size="20" dy="-12">2</tspan></text>
+              <text x="245" y="205" text-anchor="middle" font-size="13" fill="#857F73" font-family="Cormorant Garamond, serif" font-style="italic">la curva, dicha en otro lenguaje</text>
+            </g>
+          </svg>
+          <p class="fe-note" id="feNote">Cada punto P de la curva queda descrito por dos segmentos, <span class="eq">x</span> e <span class="eq">y</span>.</p>
+        </div>
+        <p class="figcap">Diagrama propio. La curva no cambia: cambia la forma de nombrarla.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="metodo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="rule"></span><span class="kicker-num">iii</span><span class="eyebrow">Cómo trabajaba Descartes</span>
+    </div>
+    <h2 class="reveal" style="max-width:16ch">La notación no era un adorno: era una herramienta para pensar</h2>
+    <p class="reveal d1" style="max-width:66ch">Descartes no partía de un plano cartesiano ya hecho. Su procedimiento empezaba por <em class="term">suponer el problema resuelto</em>, dar nombre a las líneas necesarias —conocidas y desconocidas— y buscar relaciones entre ellas hasta llegar a una ecuación. Ese gesto de nombrar lo que aún no se conoce permitió operar con lo desconocido como si ya pudiera pensarse con claridad.</p>
+    <div class="cards3">
+      <div class="mcard reveal d1">
+        <span class="step">1</span>
+        <svg width="100%" height="64" viewBox="0 0 200 64" aria-hidden="true">
+          <line x1="20" y1="42" x2="120" y2="42" stroke="#22384A" stroke-width="2"/>
+          <line x1="120" y1="42" x2="180" y2="42" stroke="#9A7B4F" stroke-width="2" stroke-dasharray="4 3"/>
+          <text x="60" y="30" font-size="18" fill="#22384A" font-family="Cormorant Garamond, serif" font-style="italic">a</text>
+          <text x="146" y="30" font-size="18" fill="#9A7B4F" font-family="Cormorant Garamond, serif" font-style="italic">x</text>
+        </svg>
+        <h3>Nombrar lo conocido y lo desconocido</h3>
+        <p>Letras del inicio del alfabeto para lo dado; del final, para lo que se busca.</p>
+      </div>
+      <div class="mcard reveal d2">
+        <span class="step">2</span>
+        <svg width="100%" height="64" viewBox="0 0 200 64" aria-hidden="true">
+          <path d="M20 50 Q 80 0 120 30" fill="none" stroke="#22384A" stroke-width="2"/>
+          <line x1="120" y1="30" x2="120" y2="50" stroke="#9A7B4F" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <line x1="20" y1="50" x2="120" y2="50" stroke="#9A7B4F" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <circle cx="120" cy="30" r="4" fill="#22384A"/>
+        </svg>
+        <h3>Traducir relaciones geométricas</h3>
+        <p>Las distancias y proporciones entre segmentos se expresan como operaciones.</p>
+      </div>
+      <div class="mcard reveal d3">
+        <span class="step">3</span>
+        <svg width="100%" height="64" viewBox="0 0 200 64" aria-hidden="true">
+          <text x="100" y="42" text-anchor="middle" font-size="26" fill="#22384A" font-family="Cormorant Garamond, serif" font-style="italic">z<tspan font-size="15" dy="-10">2</tspan><tspan dy="10"> = a z + b</tspan></text>
+        </svg>
+        <h3>Reducir a una ecuación</h3>
+        <p>El problema entero se condensa en una sola relación que puede resolverse.</p>
+      </div>
+    </div>
+    <div class="notation reveal d2">
+      <h3>Un detalle que cambió la velocidad del pensamiento</h3>
+      <p>En <em style="color:#fff;font-style:italic">La Géométrie</em>, Descartes consolidó convenciones que seguimos usando hoy. No es un asunto menor de escritura: una buena notación cambia la claridad de las relaciones y la posibilidad de generalizar.</p>
+      <div class="nrow">
+        <div><div class="big">a, b, c …</div><p style="margin-top:6px">cantidades <b style="color:var(--copper-soft)">conocidas</b></p></div>
+        <div><div class="big">x, y, z …</div><p style="margin-top:6px">cantidades <b style="color:var(--copper-soft)">desconocidas</b></p></div>
+        <div><div class="big">x² , x³ …</div><p style="margin-top:6px">potencias con <b style="color:var(--copper-soft)">exponentes</b></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="fermat">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="rule"></span><span class="kicker-num">iv</span><span class="eyebrow">La controversia</span>
+    </div>
+    <div class="cols text-first">
+      <div>
+        <h2 class="reveal">Fermat entra en escena</h2>
+        <p class="reveal d1">Descartes no fue el único que transformaba la relación entre álgebra y geometría. De manera independiente, Pierre de Fermat llegó a principios fundamentales del mismo campo. Trabajaban con metas cercanas; sus estilos y prioridades no eran idénticos, pero la historia de la geometría analítica no puede contarse honestamente como si hubiera un solo protagonista.</p>
+        <p class="reveal d2">La tensión no fue una simple disputa de quién llegó primero, sino algo más amplio: método, reconocimiento y formas de validar resultados. Si hoy el nombre de Descartes quedó más unido a este campo, no fue solo por la calidad de su trabajo —también pesaron la publicación, la difusión y la manera en que después se escribió la historia.</p>
+        <div class="pull reveal d3">La autoría científica rara vez es un asunto limpio.</div>
+      </div>
+      <div class="reveal d2">
+        <div class="portrait-row">
+          <div class="portrait" id="portD">
+            <div class="frame">
+              <div class="plate"><img alt="Retrato de René Descartes, según Frans Hals (1649)" loading="lazy"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg/500px-Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg"
+                onerror="this.closest('.portrait').classList.add('imgfail')"></div>
+              <div class="fallback" id="cameoD"></div>
+              <div class="nameplate"><div class="nm">René Descartes</div><div class="yr">1596 — 1650</div></div>
+            </div>
+          </div>
+          <div class="portrait" id="portF">
+            <div class="frame">
+              <div class="plate"><img alt="Retrato grabado de Pierre de Fermat, por François de Poilly" loading="lazy"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Pierre_de_Fermat_%28F._Poilly%29.jpg/500px-Pierre_de_Fermat_%28F._Poilly%29.jpg"
+                onerror="this.closest('.portrait').classList.add('imgfail')"></div>
+              <div class="fallback" id="cameoF"></div>
+              <div class="nameplate"><div class="nm">Pierre de Fermat</div><div class="yr">1607 — 1665</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="versus" id="versus">
+      <div class="vcol left">
+        <div class="who"><span class="nm">Descartes</span><span class="yr">1596 — 1650</span></div>
+        <ul>
+          <li>Publica un método general en <em class="eq">La Géométrie</em> (1637)</li>
+          <li>Énfasis en la construcción y en qué curvas son admisibles</li>
+          <li>Obra impresa, difundida y comentada en latín</li>
+        </ul>
+      </div>
+      <div class="axis"><span class="ln"></span><span class="w">método · autoría</span><span class="ln"></span></div>
+      <div class="vcol right">
+        <div class="who"><span class="nm">Fermat</span><span class="yr">1607 — 1665</span></div>
+        <ul>
+          <li>Desarrolla lugares geométricos por vía algebraica, antes de 1637</li>
+          <li>Trabaja sobre Apolonio y la tradición clásica</li>
+          <li>Difunde en manuscrito, por carta, casi sin publicar</li>
+        </ul>
+      </div>
+    </div>
+    <p class="figcap" style="text-align:center">Retratos de dominio público: Descartes según Frans Hals (1649) · Fermat grabado por F. de Poilly.</p>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="circulacion">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="rule"></span><span class="kicker-num">v</span><span class="eyebrow">Cómo circulaban las ideas</span>
+    </div>
+    <div class="cols">
+      <div>
+        <h2 class="reveal">Antes de las revistas,<br>estaban las cartas</h2>
+        <p class="reveal d1">En el siglo XVII, las ideas matemáticas no viajaban solo en libros impresos. Circulaban por cartas, comentarios, desafíos y redes de intercambio. <em class="term">Marin Mersenne</em> fue una figura central: mantenía correspondencia con Descartes, Fermat y muchos otros, y funcionaba como punto de conexión entre investigadores dispersos.</p>
+        <p class="reveal d2">Eso cambia la imagen del matemático solitario. Una idea no se imponía solo por existir: tenía que ser enviada, discutida, defendida y retransmitida. Incluso la influencia posterior de <em class="term">La Géométrie</em> dependió de ese proceso.</p>
+        <div class="pull reveal d3">Una idea matemática no solo importa por ser buena. También importa por cómo circula y quién la legitima.</div>
+        <p class="reveal d3" style="font-size:13px;color:var(--ink-faint);font-style:italic">Pasa el cursor (o toca) cada nodo de la red.</p>
+      </div>
+      <div class="reveal d2">
+        <div class="net-wrap">
+          <svg class="net-svg" viewBox="0 0 460 380" id="netSvg" role="img" aria-label="Red de correspondencia del siglo XVII con Mersenne como nodo central">
+            <g id="edges"></g><g id="nodes"></g>
+          </svg>
+          <div class="net-info" id="netInfo"><span class="role">La red epistolar</span><b>Mersenne</b> al centro — pasa el cursor o toca cada figura.</div>
+          <div class="net-legend"><span><em></em> matemático</span><span><i></i> correspondencia</span><span style="color:var(--copper)">● las cartas viajan por la red</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="simplifica">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="rule"></span><span class="kicker-num">vi</span><span class="eyebrow">Lo que el relato deja fuera</span>
+    </div>
+    <h2 class="reveal" style="max-width:18ch">La versión rápida cabe en una frase. El resto, no.</h2>
+    <div class="simp" id="simp">
+      <div class="quick">
+        <span class="label">Versión escolar</span>
+        <span class="q">«Descartes inventó el plano cartesiano y fundó la geometría analítica.»</span>
+      </div>
+      <div class="full">
+        <span class="label">Lo que esa frase omite</span>
+        <div class="layer"><b>Fermat trabajó en paralelo</b>, de forma independiente, sobre el mismo terreno.</div>
+        <div class="layer"><b>La notación tuvo un papel decisivo</b>: cambió la forma de razonar, no solo de escribir.</div>
+        <div class="layer"><b>El «plano cartesiano» escolar</b> no coincide del todo con lo que hizo Descartes.</div>
+        <div class="layer"><b>El reconocimiento no depende solo de descubrir</b>, sino de publicar, difundir y enseñar.</div>
+        <div class="layer"><b>El relato histórico también se construye</b>: elegimos a quién recordamos como protagonista.</div>
+      </div>
+    </div>
+    <p class="reveal d2" style="margin-top:28px;max-width:64ch">La historia de las matemáticas se vuelve más rica cuando dejamos de buscar un héroe único y empezamos a mirar redes, herramientas, disputas y formas de escritura.</p>
+  </div>
+</section>
+
+<section id="cierre" class="closing">
+  <svg class="bg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g stroke="#9A7B4F" stroke-width="1">
+      <line x1="0" y1="150" x2="1200" y2="150"/><line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="450" x2="1200" y2="450"/>
+      <line x1="300" y1="0" x2="300" y2="600"/><line x1="600" y1="0" x2="600" y2="600"/><line x1="900" y1="0" x2="900" y2="600"/>
+    </g>
+    <path d="M120 540 Q 600 -90 1080 540" fill="none" stroke="#9A7B4F" stroke-width="2"/>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow reveal">Cierre</div>
+    <p class="final reveal d1">Las matemáticas no cambian solo cuando aparece una solución. Cambian también cuando cambia <span class="hi">la forma de escribir, discutir y legitimar</span> un problema.</p>
+    <p class="reveal d2">Por eso esta historia no trata solo de Descartes ni solo de Fermat. Trata de un momento en el que las matemáticas empezaron a escribirse de otra manera y, al hacerlo, empezaron también a pensarse de otra manera.</p>
+  </div>
+</section>
+
+<section id="biblio" class="biblio">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="rule"></span><span class="kicker-num">·</span><span class="eyebrow">Bibliografía y créditos</span>
+    </div>
+    <div class="bib-grid">
+      <div>
+        <ul class="bib-list reveal d1">
+          <li><b>Descartes, R.</b> (1637). <i>La Géométrie</i>, apéndice del <i>Discours de la méthode</i>.</li>
+          <li><b>Boyer, C. B.</b> (1956). <i>History of Analytic Geometry</i>. Scripta Mathematica.</li>
+          <li><b>Mahoney, M. S.</b> (1994). <i>The Mathematical Career of Pierre de Fermat, 1601–1665</i>. Princeton University Press.</li>
+          <li><b>Bos, H. J. M.</b> (2001). <i>Redefining Geometrical Exactness: Descartes' Transformation of the Early Modern Concept of Construction</i>. Springer.</li>
+          <li><b>Stedall, J.</b> (2012). <i>The History of Mathematics: A Very Short Introduction</i>. Oxford University Press.</li>
+          <li><b>Katz, V. J.</b> (2009). <i>A History of Mathematics: An Introduction</i> (3.ª ed.). Addison-Wesley.</li>
+        </ul>
+      </div>
+      <div class="credits reveal d2">
+        <p>Pieza de divulgación sobre el nacimiento de la geometría analítica y la circulación del conocimiento en el siglo XVII.</p>
+        <div class="sig">Ismael Castro</div>
+        <div class="meta">
+          Texto, diseño y diagramas originales.<br>
+          Ilustraciones SVG propias · sin dependencias externas.<br>
+          Single-page · HTML, CSS y JavaScript.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="footer-mark">Descartes &amp; Fermat · 2026</div>
+</main>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
